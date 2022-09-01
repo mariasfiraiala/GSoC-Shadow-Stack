@@ -104,9 +104,29 @@ For a better grasp of the work that went into it, check these 2 PRs:
 
 ## Roadmap
 
+My journey for the second part of the GSoC mentorship was documented [here](https://github.com/mariasfiraiala/scs-work/blob/master/utils/roadmap-scs.md).
+
+For more detailed timestamps you can check our meeting notes:
+
+**TODO**: insert meeting notes links here, after rd merges them
+
 ## Blog posts
 
+During GSoC'22, I provided 3 blog posts which provide a comprehensive status quo for the 3 months that I was involved with Unikraft:
+
+**TODO**: insert blog posts links here, after rd merges them
+
 ## Documentation
+
+Documenting each and every step I took this summer was also one of my favourite activities.
+
+The main 3 documents that highlight this passion are:
+
+* [Shadow Stack for ARM vs x86](https://github.com/mariasfiraiala/scs-work/blob/master/utils/doc-scs-arm-vs-x86.md)
+
+* [Shadow Stack for simple apps on Unikraft](https://github.com/mariasfiraiala/scs-work/blob/master/unikraft-scs/unikraft-scs-for-helloworld.md)
+
+* [Shadow Stack for complex apps on Unikraft](https://github.com/mariasfiraiala/scs-work/blob/master/unikraft-scs/unikraft-scs-for-complex-apps.md)
 
 ## Current status
 
