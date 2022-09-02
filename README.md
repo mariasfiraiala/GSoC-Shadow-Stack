@@ -78,6 +78,8 @@ perfectly describes the efforts made into that direction.
 
 * [Python3 PR](https://github.com/unikraft/lib-python3/pull/6)
 
+* [Core Unikraft boot stack alignment PR](https://github.com/unikraft/unikraft/pull/533)
+
 ### Issues opened by me
 
 * [Newlib limits.h issue](https://github.com/unikraft/lib-newlib/issues/19)
@@ -130,6 +132,20 @@ The main 3 documents that highlight this passion are:
 
 ## Current status
 
+My project, even though it followed the initial proposal quite accurately, provides Shadow Stack support for apps without multithreading.
+
 ## Future work
+
+The first milestone to be achieved after GSoC'22 comes to an end is having multithreading Shadow Stack support.
+
+Beautifying and easing the `make build` system for apps for which our users would like to have Shadow Stack support is also a top priority.
+
+Reviewing current work done by the community towards modifying the [scheduling API](https://github.com/skuenzer/unikraft/tree/skuenzer/sched-refactor) and updating my implementation to fit these changes takes a big part in my planning for the future 2-3 months.
+
+Nevertheless, investigating other security mechanisms related to Shadow Stack (such as `CET` and `Safe Stack`) and providing proposals as to how they would be integrated into the Unikraft ecosystem seems to be critical to [Unikraft's security](https://unikraft.org/docs/features/security/), as it heavily relies on the isolation provided by running in a virtualized medium, without any other significant security mechanisms being envolved.
+
+As a part of my testing work, I also plan on continuing to test Unikraft apps on `AArch64` with various compilers. Some of these apps are: [`app-python3`](https://github.com/unikraft/app-python3), [`app-lua`](https://github.com/unikraft/app-lua), [`app-httpreply`](https://github.com/unikraft/app-httpreply).
+
+Another thing which should be also be achieved is providing a series of patches for `newlib` in order to fix some `gcc`-isms that, for the time being, make the compilation of `AArch64` apps impossible using `clang`.
 
 ## Main takeaways
