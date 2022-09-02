@@ -2,12 +2,12 @@
 
 <img width="100px" src="https://summerofcode.withgoogle.com/assets/media/gsoc-2022-badge.svg" align="right" />
 
-The current implementation aims to bring the compiler based, LLVM `ShadowCallStack` to Unikraft apps.
-
 Software based shadow stacks protect the return value of the functions by comparing what’s pushed into them with what resides in the traditional stack, practically, functioning as a backup and check storage.
 
+The current implementation aims to bring the compiler based, LLVM `ShadowCallStack` to Unikraft apps.
+
 What makes this project so different from other approaches is the complexity of the platform it targets.
-Unikraft, a Unikernel Development Kit, provides applications which run in a single address space, the separation between user mode and kernel mode becoming, practically, nonexistent.
+Unikraft, a Unikernel Development Kit, provides applications which run in a single address space, which means that there is no separation between usermode and kernelmode.
 
 ![unikraft build system](images/unikraft-build-system.png)
 
@@ -46,7 +46,7 @@ This PR aims to bring Shadow Stack support to both simple and complex apps, even
 
 Besides providing the aforementioned PR, critical to the fully integration of my work was ensuring that the most used complex apps on the `AArch64` architecture were functional.
 
-This matrix, which cam also be found [here](https://github.com/mariasfiraiala/scs-work/blob/master/unikraft-scs/unikraft-scs-for-complex-apps.md)
+This matrix, which can also be found [here](https://github.com/mariasfiraiala/scs-work/blob/master/unikraft-scs/unikraft-scs-for-complex-apps.md)
 
 
 | App\Compiler | gcc - x86 | gcc - aarch64 | clang - x86 | clang - aarch64 | clang with scs | gcc-12 with scs |
@@ -134,15 +134,40 @@ The main 3 documents that highlight this passion are:
 
 My project, even though it followed the initial proposal quite accurately, provides Shadow Stack support for apps without multithreading.
 
+To be more exact, already implemented Unikraft apps, such as `helloworld`, or any user imported programs that do not use what, in the Unikraft realm, is considered [multithreading](https://unikraft.org/blog/2022-06-27-unikraft-synchronization/#mutex) work with Shadow Stack support.
+
+As Proof of Concept, I relied on inspecting assembly code using `gdb`:
+
+
+```
+main (argc=1, argv=0x4013c3d0 <ukplat_entry_argp.argv>)
+    at /home/maria/demo/02-hello-world-with-shadow-stack/apps/app-helloworld/main.c:27
+27      {
+(gdb) x/i $pc
+=> 0x40108590 <main>:   str     x30, [x18], #8
+(gdb) si
+0x0000000040108594      27      {
+(gdb) x/i $pc
+=> 0x40108594 <main+4>: stp     x29, x30, [sp, #-48]!
+(gdb) x/x $x18
+0x47fc0018:     0x00000000
+(gdb) x/x $x30
+0x40113c78 <main_thread_func+380>:      0x7100001f
+(gdb) x/x 0x47fc0010
+0x47fc0010:     0x40113c78
+```
+
+Notice how [`x18` - 8] stores pointer to `x30`, which at this point in time has the return address.
+
 ## Future work
 
 The first milestone to be achieved after GSoC'22 comes to an end is having multithreading Shadow Stack support.
 
-Beautifying and easing the `make build` system for apps for which our users would like to have Shadow Stack support is also a top priority.
+Beautifying and easing the `make build` system for apps for which Unikraft users would like to have Shadow Stack support is also a top priority.
 
 Reviewing current work done by the community towards modifying the [scheduling API](https://github.com/skuenzer/unikraft/tree/skuenzer/sched-refactor) and updating my implementation to fit these changes takes a big part in my planning for the future 2-3 months.
 
-Nevertheless, investigating other security mechanisms related to Shadow Stack (such as `CET` and `Safe Stack`) and providing proposals as to how they would be integrated into the Unikraft ecosystem seems to be critical to [Unikraft's security](https://unikraft.org/docs/features/security/), as it heavily relies on the isolation provided by running in a virtualized medium, without any other significant security mechanisms being envolved.
+Nevertheless, investigating other security mechanisms related to Shadow Stack (such as `CET` and `Safe Stack`) and providing proposals as to how they would be integrated into the Unikraft ecosystem seems to be critical to [Unikraft's security](https://unikraft.org/docs/features/security/), as it heavily relies on the isolation provided by running images in a virtualized medium, without any other significant security mechanisms being involved.
 
 As a part of my testing work, I also plan on continuing to test Unikraft apps on `AArch64` with various compilers. Some of these apps are: [`app-python3`](https://github.com/unikraft/app-python3), [`app-lua`](https://github.com/unikraft/app-lua), [`app-httpreply`](https://github.com/unikraft/app-httpreply).
 
