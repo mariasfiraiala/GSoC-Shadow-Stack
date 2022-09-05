@@ -7,7 +7,7 @@ Software based shadow stacks protect the return value of the functions by compar
 The current implementation aims to bring the compiler based, LLVM `ShadowCallStack` to Unikraft apps.
 
 What makes this project so different from other approaches is the complexity of the platform it targets.
-Unikraft, a Unikernel Development Kit, provides applications which run in a single address space, which means that there is no separation between usermode and kernelmode.
+Unikraft, a Unikernel Development Kit, provides applications that run in a single address space, which means that there is no separation between usermode and kernelmode.
 
 ![unikraft build system](images/unikraft-build-system.png)
 
@@ -175,6 +175,14 @@ Another thing which should be also be achieved is providing a series of patches 
 
 ## Main takeaways
 
+### Soft skills
+
+The achievement I am the proudest about is the easiness with which I, now, ask questions. Luckily, I've come to the conclusion that, mostly, people don't bite and having trouble and asking for help isn't such a sin.
+
+The other accomplishment with which I'm also very happy is the integration among the other members of the community. I am now accustomed with everyone's role in the organization, what are the current tasks carried out by the team, what work is being done at the moment, who to ask about a particular bug. In other words, I've found my place.
+
+### Hard skills
+
 Technologies I got accustomed with:
 
 <div>
@@ -187,3 +195,11 @@ Technologies I got accustomed with:
   <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original-wordmark.svg" title="Docker" alt="Docker" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/markdown/markdown-original.svg" title="Markdown" alt="Markdown" width="40" height="40"/>&nbsp;
 </div>
+
+### Final thoughts
+
+My forever gratitude goes towards my mentors, [Razvan](https://github.com/razvand) and [Vlad](https://github.com/vladandrew) as they trully embodied what a mentor should be. Without them my project wouldn't have been as fun and as close to an end as it is now.
+
+Many thanks to the people that also looked after me, [Radu](https://github.com/RaduNichita), [Eduard](https://github.com/eduardvintila), [Stefan](https://github.com/StefanJum) and [Cezar](https://github.com/craciunoiuc).
+
+To the rest of the community I pestered with issues and stupid questions, [Michalis](https://github.com/michpappas), [Marc](https://github.com/marcrittinghaus), [Simon](https://github.com/skuenzer) and [Robert](https://github.com/kubanrob), my sincere apologies and thank you for your patience and willingness to help.
