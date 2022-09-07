@@ -14,7 +14,7 @@ Unikraft, a Unikernel Development Kit, provides applications that run in a singl
 Thus, traditional means of using the compiler based `ShadowCallStack` can not be applied to Unikraft images.
 More exactly, providing a runtime (not yet supported by LLVM's `compiler-rt`) for this security mechanism can not follow the path of using, for instance, the `arch_prctl` syscall, very nicely documented [here](https://gist.github.com/moyix/f2e101348209ddeb7eba903147a867aa).
 
-Moreover, what's really so interesting about Unikraft is the ability of building images for a plethora of architectures and platforms, ergo, the initial goal of my GSoC project (Shadow Stack for `AArch64` based apps) could easily come to light while maintaning separation and modularity.
+Moreover, what's really so interesting about Unikraft is the ability of building images for a plethora of architectures and platforms, ergo, the initial goal of my GSoC project (Shadow Stack for `AArch64` based apps) could easily come to light while maintaining separation and modularity.
 
 ![unikraft architecture](images/unikraft-architecture.png)
 
@@ -40,11 +40,11 @@ Github profile: [mariasfiraiala](https://github.com/mariasfiraiala)
 
 The biggest part of my work went into crafting the **[Shadow Stack PR](https://github.com/unikraft/unikraft/pull/505)**, which should be upstream once the `0.12 Epimetheus` Unikraft release is out.
 
-This PR aims to bring Shadow Stack support to both simple and complex apps, even though work is still pending in order to fix some bugs regarding the multithreading Shadow Stack implementation.
+This PR aims to bring Shadow Stack support to both single threaded and multithreading apps, even though work is still pending in order to fix some bugs regarding the multithreading Shadow Stack implementation.
 
 ## Sidequests
 
-Besides providing the aforementioned PR, critical to the fully integration of my work was ensuring that the most used complex apps on the `AArch64` architecture were functional.
+Besides providing the aforementioned PR, critical to the full integration of my work was ensuring that the most used complex apps on the `AArch64` architecture were functional.
 
 This matrix, which can also be found [here](https://github.com/mariasfiraiala/scs-work/blob/master/unikraft-scs/unikraft-scs-for-complex-apps.md)
 
@@ -171,7 +171,7 @@ Nevertheless, investigating other security mechanisms related to Shadow Stack (s
 
 As a part of my testing work, I also plan on continuing to test Unikraft apps on `AArch64` with various compilers. Some of these apps are: [`app-python3`](https://github.com/unikraft/app-python3), [`app-lua`](https://github.com/unikraft/app-lua), [`app-httpreply`](https://github.com/unikraft/app-httpreply).
 
-Another thing which should be also be achieved is providing a series of patches for `newlib` in order to fix some `gcc`-isms that, for the time being, make the compilation of `AArch64` apps impossible using `clang`.
+Another thing which should also be achieved is providing a series of patches for `newlib` in order to fix some `gcc`-isms that, for the time being, make the compilation of `AArch64` apps impossible using `clang`.
 
 ## Main takeaways
 
@@ -198,7 +198,7 @@ Technologies I got accustomed with:
 
 ### Final thoughts
 
-My forever gratitude goes towards my mentors, [Razvan](https://github.com/razvand) and [Vlad](https://github.com/vladandrew) as they trully embodied what a mentor should be. Without them my project wouldn't have been as fun and as close to an end as it is now.
+My forever gratitude goes towards my mentors, [Razvan](https://github.com/razvand) and [Vlad](https://github.com/vladandrew) as they truly embodied what a mentor should be. Without them my project wouldn't have been as fun and as close to an end as it is now.
 
 Many thanks to the people that also looked after me, [Radu](https://github.com/RaduNichita), [Eduard](https://github.com/eduardvintila), [Stefan](https://github.com/StefanJum) and [Cezar](https://github.com/craciunoiuc).
 
