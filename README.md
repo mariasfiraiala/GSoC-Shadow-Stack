@@ -108,9 +108,7 @@ For a better grasp of the work that went into it, check these 2 PRs:
 
 My journey for the second part of the GSoC mentorship was documented [here](https://github.com/mariasfiraiala/scs-work/blob/master/utils/roadmap-scs.md).
 
-For more detailed timestamps you can check our meeting notes:
-
-**TODO**: insert meeting notes links here, after rd merges them
+For more detailed timestamps you can check our meeting notes in the Unikraft meeting notes [repo](https://github.com/unikraft/meeting-notes/tree/staging/discussions/gsoc); look for the files with the `ss` prefix (acronym for Shadow Stack).
 
 ## Blog posts
 
