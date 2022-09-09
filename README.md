@@ -112,9 +112,13 @@ For more detailed timestamps you can check our meeting notes in the Unikraft mee
 
 ## Blog posts
 
-During GSoC'22, I provided 3 blog posts which provide a comprehensive status quo for the 3 months that I was involved with Unikraft:
+During GSoC'22, I provided 3 blog posts which offer a comprehensive status quo for the 3 months that I was involved with Unikraft:
 
-**TODO**: insert blog posts links here, after rd merges them
+* [first blog post](https://unikraft.org/blog/2022-07-05-unikraft-gsoc-shadow-stack/)
+
+* [second blog post](https://unikraft.org/blog/2022-07-20-unikraft-gsoc-shadow-stack/)
+
+* [third blog post](https://unikraft.org/blog/2022-08-19-unikraft-gsoc-shadow-stack/)
 
 ## Documentation
 
